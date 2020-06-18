@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Jsoup app</string>
+    <string name="enter_elearning_hub">Enter eLearning Hub</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="failed">Login Failed</string>
+    <string name="not_found">Not found</string>
+</resources>
