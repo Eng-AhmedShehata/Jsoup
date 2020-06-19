@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".exam.ExamActivity"></activity>
+        <activity android:name="com.ashehata.jsoupapp.exam.addExam.displayExams.ExamActivity"></activity>
         <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

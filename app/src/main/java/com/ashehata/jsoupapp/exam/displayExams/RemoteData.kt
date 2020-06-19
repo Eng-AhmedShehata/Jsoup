@@ -1,21 +1,19 @@
-package com.ashehata.jsoupapp.exam
+package com.ashehata.jsoupapp.exam.displayExams
 
-import android.util.Log
-import com.ashehata.jsoupapp.externals.*
-import com.ashehata.jsoupapp.models.UserLogin
+import com.ashehata.jsoupapp.externals.USER_AGENT
 import org.jsoup.Connection
 import org.jsoup.Jsoup
 
-class ExamRepository {
+class RemoteData {
 
-    fun getExamList(url: String, cookies: Map<String, String>?): Connection.Response? {
+    fun getExamsList(url: String, cookies: Map<String, String>?): Connection.Response? {
 
         // Make the request
         return Jsoup.connect(url)
             .userAgent(USER_AGENT)
             .method(Connection.Method.GET) // POST method
             .followRedirects(true)
-            .referrer(URL_BASE) // Pass login url
+            .referrer(url) // Pass login url
             .cookies(cookies) // Pass the previous cookies to complete login
             .ignoreHttpErrors(true)
             .timeout(0)// Infinite time out

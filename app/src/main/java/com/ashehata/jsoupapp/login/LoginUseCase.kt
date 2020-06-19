@@ -20,26 +20,28 @@ class LoginUseCase(private val repository: LoginRepository) {
         vmScope.launch(Dispatchers.IO) {
             try {
                 // Get login document
-                val firstResponse = repository.getLoginDocument(URL_LOGIN)
+                val firstResponse = repository.getLoginDocument(
+                    URL_BASE + URL_LOGIN)
 
                 // Make post request to login
-                val response = repository.login(
+                val loginResponse = repository.login(
                     URL_BASE + URL_LOGIN ,
                     userLoginModel,
                     firstResponse)
 
-                /*
-                Log.v("Status_code", "getResponse: ${response?.statusCode()}")
-                Log.v("Status_message", "getResponse: ${response?.statusMessage()}")
-                Log.v("login_response", response?.parse()?.body().toString())
-                Log.v("login_url", response?.url().toString())
-
-                 */
+                val hasCookie = loginResponse?.hasCookie(".ASPXAUTH")
 
                 // Return the current view state
-                when (response?.statusCode()) {
+                when (loginResponse?.statusCode()) {
 
-                    RESPONSE_SUCCESS -> { updateViewState(loginSuccessful(viewState)) }
+                    RESPONSE_SUCCESS -> {
+                        if (hasCookie!!) {
+                            // Save data to shared
+                            repository.saveCookies(loginResponse.cookies() as HashMap<String, String>?)
+                            // Update state
+                            updateViewState(loginSuccessful(viewState, loginResponse.cookies()))
+                        } else throw IllegalAccessException()
+                    }
                     RESPONSE_FAILED -> {updateViewState(loginFailed(viewState))}
                     RESPONSE_NOT_FOUND -> {updateViewState(loginNotFound(viewState))}
                     else -> {updateViewState(loginFailed(viewState))}
@@ -52,14 +54,16 @@ class LoginUseCase(private val repository: LoginRepository) {
                 // Return the current view state
                 updateViewState(
                     viewState?.copy(
-                        null,
-                        false,
-                        ResponseTypes.FAILED,
-                        e.message)
+                        cookies = null,
+                        isLoading = false,
+                        responseType = ResponseTypes.FAILED,
+                        errorMessage = e.message)
                 )
             }
-
         }
+
+
+
 
     }
 
@@ -78,10 +82,10 @@ class LoginUseCase(private val repository: LoginRepository) {
             ResponseTypes.FAILED)
     }
 
-    private fun loginSuccessful(viewState: LoginViewState?): LoginViewState? {
+    private fun loginSuccessful(viewState: LoginViewState?, cookies: Map<String, String>?): LoginViewState? {
         return viewState?.copy(
-            "",
-            false,
-            ResponseTypes.SUCCESSFUL)
+            cookies = cookies as HashMap<String, String>?,
+            isLoading =  false,
+            responseType = ResponseTypes.SUCCESSFUL)
     }
 }

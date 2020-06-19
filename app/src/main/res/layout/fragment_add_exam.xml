@@ -1,80 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.LoginActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:layout_marginTop="@dimen/dim_20dp"
         android:textColor="#000"
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_title_add_exam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/enter_elearning_hub"
+        android:text="@string/add_exam"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tl_email"
+        android:id="@+id/tl_type"
         android:layout_marginStart="@dimen/dim_20dp"
         android:layout_marginEnd="@dimen/dim_20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_add_exam"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_email"
+            android:id="@+id/et_type"
             style="@style/EditTextLogin"
-            android:drawableStart="@drawable/ic_email"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress" />
+            android:hint="@string/type"
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tl_password"
+        android:id="@+id/tl_description"
         android:layout_marginStart="@dimen/dim_20dp"
         android:layout_marginEnd="@dimen/dim_20dp"
         android:layout_marginTop="@dimen/dim_20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tl_email"
+        app:layout_constraintTop_toBottomOf="@id/tl_type"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_password"
+            android:id="@+id/et_description"
             style="@style/EditTextLogin"
-            android:drawableStart="@drawable/ic_password"
-            android:hint="@string/password"
-            android:inputType="textPassword" />
+            android:gravity="start|top"
+            android:lines="5"
+            android:hint="@string/description"
+            android:inputType="textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_add_exam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login"
-        app:layout_constraintTop_toBottomOf="@id/tl_password"
+        android:text="@string/add"
+        app:layout_constraintTop_toBottomOf="@id/tl_description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/dim_20dp"/>
 
     <ProgressBar
-        android:id="@+id/pb_loading"
+        android:id="@+id/pb_loading_add_exam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

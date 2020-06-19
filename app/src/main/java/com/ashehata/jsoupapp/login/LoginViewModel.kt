@@ -21,7 +21,7 @@ class LoginViewModel(private val useCase: LoginUseCase) : ViewModel() {
    init {
        // init the first view state
        _viewState.value = LoginViewState(
-           data = null,
+           cookies = null,
            isLoading = false,
            responseType = ResponseTypes.EMPTY,
            isEmptyFields = null,
@@ -37,7 +37,12 @@ class LoginViewModel(private val useCase: LoginUseCase) : ViewModel() {
 
     fun login(userLoginModel: UserLogin) {
         // Show progress bar
-        _viewState.value = getCurrentState()?.copy(isLoading = true)
+        _viewState.value = getCurrentState()?.copy(
+            isLoading = true,
+            responseType = ResponseTypes.EMPTY,
+            cookies = null,
+            errorMessage = null
+            )
 
         // TODO validate the enterd data(Email & password)
 

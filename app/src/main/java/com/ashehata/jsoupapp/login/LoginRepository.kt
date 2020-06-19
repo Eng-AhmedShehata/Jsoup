@@ -6,36 +6,25 @@ import com.ashehata.jsoupapp.models.UserLogin
 import org.jsoup.Connection
 import org.jsoup.Jsoup
 
-class LoginRepository : GlobalRepository {
+class LoginRepository(private val localData: LoginLocalData,
+                      private val remoteData: LoginRemoteData
+                      )  {
 
-    override fun getLoginDocument(url: String): Connection.Response?
-            = Jsoup.connect(url).method(Connection.Method.GET).userAgent(USER_AGENT).execute()
+    /**
+     * To get cookies from login page
+     */
+    fun getLoginDocument(url: String) = remoteData.getLoginDocument(url)
 
+    /**
+     *  To make post request for user data (name & pass)
+     */
+    fun login(url: String, userLogin: UserLogin, response: Connection.Response?)
+            = remoteData.login(url, userLogin, response)
 
-    fun login(url: String, userLogin: UserLogin, response: Connection.Response?): Connection.Response? {
+    /**
+     * To save cookies to shared pref
+     */
+    fun saveCookies(cookies: HashMap<String, String>?)
+            = localData.saveCookiesToShared(cookies)
 
-        // Get the current token
-        val requestVerificationToken =
-            response?.parse()?.select("input[name=__RequestVerificationToken]")?.get(0)?.`val`()
-
-        val mData = mapOf(
-            LOGIN_TOKEN to requestVerificationToken,
-            LOGIN_EMAIL to userLogin.email,
-            LOGIN_PASSWORD to userLogin.password )
-
-        Log.v("auth", requestVerificationToken)
-
-        // Make the request
-        return Jsoup.connect(url)
-            .data(mData)// Pass the login data (Name / pass / auth)
-            .userAgent(USER_AGENT)
-            .method(Connection.Method.POST) // POST method
-            .followRedirects(true)
-            .referrer(url) // Pass login url
-            .cookies(response?.cookies()) // Pass the previous cookies to complete login
-            .ignoreHttpErrors(true)
-            .timeout(0)// Infinite time out
-            .execute()
-
-    }
 }

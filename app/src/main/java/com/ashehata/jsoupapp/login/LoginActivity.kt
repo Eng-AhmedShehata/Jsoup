@@ -8,14 +8,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.ashehata.jsoupapp.R
-import com.ashehata.jsoupapp.exam.ExamActivity
-import com.ashehata.jsoupapp.externals.RESPONSE_FAILED
-import com.ashehata.jsoupapp.externals.RESPONSE_NOT_FOUND
-import com.ashehata.jsoupapp.externals.RESPONSE_SUCCESS
-import com.ashehata.jsoupapp.externals.ResponseTypes
+import com.ashehata.jsoupapp.exam.addExam.displayExams.ExamActivity
+import com.ashehata.jsoupapp.externals.*
 import com.ashehata.jsoupapp.models.UserLogin
 import kotlinx.android.synthetic.main.activity_login.*
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -48,7 +44,6 @@ class LoginActivity : AppCompatActivity() {
                 }
                 else -> {}
             }
-
 
 
 

@@ -21,4 +21,9 @@ const val LOGIN_TOKEN = "__RequestVerificationToken"
 const val LOGIN_EMAIL = "Email"
 const val LOGIN_PASSWORD = "Password"
 
+/*
+** keys
+ */
+const val SHARED_KEY_COOKIES = "key_cookies"
+
 const val USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"
