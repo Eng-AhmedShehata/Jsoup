@@ -1,6 +1,5 @@
-package com.ashehata.jsoupapp.login
+package com.ashehata.jsoupapp.login.data
 
-import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import com.ashehata.jsoupapp.externals.SHARED_KEY_COOKIES
 import com.google.gson.Gson

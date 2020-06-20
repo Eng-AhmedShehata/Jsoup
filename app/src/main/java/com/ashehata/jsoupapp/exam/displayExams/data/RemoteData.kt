@@ -1,4 +1,4 @@
-package com.ashehata.jsoupapp.exam.displayExams
+package com.ashehata.jsoupapp.exam.displayExams.data
 
 import com.ashehata.jsoupapp.externals.USER_AGENT
 import org.jsoup.Connection

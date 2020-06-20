@@ -1,10 +1,7 @@
 package com.ashehata.jsoupapp.exam.addExam.displayExams
 
-import com.ashehata.jsoupapp.exam.displayExams.LocalData
-import com.ashehata.jsoupapp.exam.displayExams.RemoteData
-import com.ashehata.jsoupapp.externals.*
-import org.jsoup.Connection
-import org.jsoup.Jsoup
+import com.ashehata.jsoupapp.exam.displayExams.data.LocalData
+import com.ashehata.jsoupapp.exam.displayExams.data.RemoteData
 
 class ExamRepository(private val localData: LocalData, private val remoteData: RemoteData) {
 

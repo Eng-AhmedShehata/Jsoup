@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/examsFragment"
-        android:name="com.ashehata.jsoupapp.exam.displayExams.ExamFragment"
+        android:name="com.ashehata.jsoupapp.exam.displayExams.presentation.ExamFragment"
         tools:layout="@layout/fragment_exam" >
 
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/addExamFragment"
-        android:name="com.ashehata.jsoupapp.exam.addExam.AddExamFragment"
+        android:name="com.ashehata.jsoupapp.exam.addExam.presentation.AddExamFragment"
         tools:layout="@layout/fragment_add_exam" />
 
 </navigation>

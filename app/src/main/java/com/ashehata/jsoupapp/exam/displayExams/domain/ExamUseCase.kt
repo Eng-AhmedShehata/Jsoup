@@ -1,5 +1,6 @@
 package com.ashehata.jsoupapp.exam.addExam.displayExams
 
+import android.util.Log
 import com.ashehata.jsoupapp.externals.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,6 +20,8 @@ class ExamUseCase(private val repository: ExamRepository) {
                 // Make get request to get exams list
                 val response = repository.getExams(
                     url = URL_BASE + URL_EXAM_LIST)
+
+                Log.v("showList", response?.cookies().toString())
 
                 val examsList = parseExamsList(response?.parse())
 

@@ -1,4 +1,4 @@
-package com.ashehata.jsoupapp.login
+package com.ashehata.jsoupapp.login.domain
 
 import com.ashehata.jsoupapp.externals.ResponseTypes
 

@@ -1,10 +1,7 @@
-package com.ashehata.jsoupapp.login
+package com.ashehata.jsoupapp.login.data
 
-import android.util.Log
-import com.ashehata.jsoupapp.externals.*
 import com.ashehata.jsoupapp.models.UserLogin
 import org.jsoup.Connection
-import org.jsoup.Jsoup
 
 class LoginRepository(private val localData: LoginLocalData,
                       private val remoteData: LoginRemoteData

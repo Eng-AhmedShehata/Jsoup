@@ -1,10 +1,12 @@
-package com.ashehata.jsoupapp.login
+package com.ashehata.jsoupapp.login.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ashehata.jsoupapp.externals.ResponseTypes
+import com.ashehata.jsoupapp.login.domain.LoginUseCase
+import com.ashehata.jsoupapp.login.domain.LoginViewState
 import com.ashehata.jsoupapp.models.UserLogin
 
 class LoginViewModel(private val useCase: LoginUseCase) : ViewModel() {
@@ -25,7 +27,8 @@ class LoginViewModel(private val useCase: LoginUseCase) : ViewModel() {
            isLoading = false,
            responseType = ResponseTypes.EMPTY,
            isEmptyFields = null,
-           errorMessage = null)
+           errorMessage = null
+       )
    }
 
     private fun getResponse(userLoginModel: UserLogin) {

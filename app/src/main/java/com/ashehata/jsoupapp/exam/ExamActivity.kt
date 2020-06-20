@@ -7,7 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import com.ashehata.jsoupapp.R
-import com.ashehata.jsoupapp.login.LoginActivity
+import com.ashehata.jsoupapp.login.presentation.LoginActivity
 
 class ExamActivity : AppCompatActivity() {
 

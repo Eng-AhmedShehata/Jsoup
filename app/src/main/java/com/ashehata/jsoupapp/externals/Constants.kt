@@ -3,10 +3,11 @@ package com.ashehata.jsoupapp.externals
 /*
 ** Urls
  */
-const val URL_LOGIN = "/Home/Login"
-const val URL_BASE = "http://elearninghub.somee.com"
-const val URL_HOME = "/Teacher"
-const val URL_EXAM_LIST = "/Exam/ExamTypeList"
+const val URL_LOGIN = "Home/Login"
+const val URL_BASE = "http://elearninghub.somee.com/"
+const val URL_HOME = "Teacher"
+const val URL_EXAM_LIST = "Exam/ExamTypeList"
+const val URL_EXAM_ADD = "Exam/AddExamType"
 
 /*
 ** Response types
@@ -17,12 +18,18 @@ const val RESPONSE_NOT_FOUND = 404
 /*
 ** Login form data keys
  */
-const val LOGIN_TOKEN = "__RequestVerificationToken"
+const val TOKEN = "__RequestVerificationToken"
 const val LOGIN_EMAIL = "Email"
 const val LOGIN_PASSWORD = "Password"
 
+/**
+ * Add exam data keys
+ */
+const val EXAM_TYPE = "ExamTypeName"
+const val EXAM_DESCRIPTION = "Description"
+
 /*
-** keys
+** Shared pref keys
  */
 const val SHARED_KEY_COOKIES = "key_cookies"
 

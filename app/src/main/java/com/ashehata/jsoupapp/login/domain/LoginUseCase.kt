@@ -1,7 +1,8 @@
-package com.ashehata.jsoupapp.login
+package com.ashehata.jsoupapp.login.domain
 
 import android.util.Log
 import com.ashehata.jsoupapp.externals.*
+import com.ashehata.jsoupapp.login.data.LoginRepository
 import com.ashehata.jsoupapp.models.UserLogin
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -30,6 +31,7 @@ class LoginUseCase(private val repository: LoginRepository) {
                     firstResponse)
 
                 val hasCookie = loginResponse?.hasCookie(".ASPXAUTH")
+                Log.v("cookiesLogin", loginResponse?.cookies().toString())
 
                 // Return the current view state
                 when (loginResponse?.statusCode()) {

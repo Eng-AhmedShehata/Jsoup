@@ -1,9 +1,9 @@
-package com.ashehata.jsoupapp.login
+package com.ashehata.jsoupapp.login.data
 
 import android.util.Log
 import com.ashehata.jsoupapp.externals.LOGIN_EMAIL
 import com.ashehata.jsoupapp.externals.LOGIN_PASSWORD
-import com.ashehata.jsoupapp.externals.LOGIN_TOKEN
+import com.ashehata.jsoupapp.externals.TOKEN
 import com.ashehata.jsoupapp.externals.USER_AGENT
 import com.ashehata.jsoupapp.models.UserLogin
 import org.jsoup.Connection
@@ -24,7 +24,7 @@ class LoginRemoteData {
         val email = "teacher@gmail.com"
         val pass = "tttt"
         val mData = hashMapOf(
-            LOGIN_TOKEN to requestVerificationToken,
+            TOKEN to requestVerificationToken,
             LOGIN_EMAIL to email,
             LOGIN_PASSWORD to pass)
 
