@@ -21,12 +21,14 @@ class LoginRemoteData {
         val requestVerificationToken =
             response?.parse()?.select("input[name=__RequestVerificationToken]")?.get(0)?.`val`()
 
+        // For test only
         val email = "teacher@gmail.com"
         val pass = "tttt"
+
         val mData = hashMapOf(
             TOKEN to requestVerificationToken,
-            LOGIN_EMAIL to email,
-            LOGIN_PASSWORD to pass)
+            LOGIN_EMAIL to userLogin.email,
+            LOGIN_PASSWORD to userLogin.password)
 
 
         Log.v("auth", requestVerificationToken)
