@@ -27,6 +27,8 @@ class ExamViewModel(private val useCase: ExamUseCase) : ViewModel() {
             responseType = ResponseTypes.EMPTY,
             errorMessage = null
         )
+
+        getExamsList()
     }
 
 

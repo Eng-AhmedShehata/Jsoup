@@ -27,18 +27,23 @@ class ExamFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        /*
         // Inflate the view
         if (mView == null) {
             mView = inflater.inflate(R.layout.fragment_exam, container, false)
             return mView
         }
         else return mView
+
+         */
+        return inflater.inflate(R.layout.fragment_exam, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getExamList()
+        //getExamList()
         updateUi()
         addfabBtn()
     }
@@ -86,4 +91,8 @@ class ExamFragment : Fragment() {
         viewModel.getExamsList()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        Toast.makeText(context, "Destroyed", Toast.LENGTH_SHORT).show()
+    }
 }
